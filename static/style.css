@@ -1,0 +1,344 @@
+/* Variables to match Tailwind colors */
+:root {
+  --bg-main: #f8fafc;
+  --blue-600: #2563eb;
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --gray-900: #111827;
+  --gray-600: #4b5563;
+  --gray-200: #e5e7eb;
+  --red-500: #ef4444;
+  --red-100: #fee2e2;
+  --amber-500: #f59e0b;
+  --amber-100: #fef3c7;
+  --emerald-500: #10b981;
+  --emerald-100: #d1fae5;
+  --indigo-100: #e0e7ff;
+  --indigo-600: #4f46e5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--gray-900);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: white;
+  border-bottom: 1px solid var(--blue-100);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo-icon {
+  background: var(--blue-600);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+}
+.logo-area h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.logo-area span {
+  color: var(--blue-600);
+}
+.nav-text {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  flex-grow: 1;
+}
+.text-center {
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 2.5rem;
+}
+.hero h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Upload Box */
+.upload-container {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+.upload-box {
+  border: 2px dashed #d1d5db;
+  border-radius: 0.75rem;
+  background: white;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.upload-box:hover,
+.upload-box.drag-active {
+  border-color: var(--blue-600);
+  background: var(--blue-50);
+}
+.icon-circle {
+  background: var(--blue-100);
+  padding: 1rem;
+  border-radius: 50%;
+  color: var(--blue-600);
+  margin-bottom: 1rem;
+}
+.upload-box h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+.sub-text {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin-top: 0.25rem;
+}
+
+/* Error Message */
+.error-msg {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Loading */
+.spinner-container {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1.5rem;
+}
+.ping {
+  position: absolute;
+  inset: 0;
+  background: var(--blue-100);
+  border-radius: 50%;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.spinner {
+  position: relative;
+  background: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.spin-icon {
+  animation: spin 1s linear infinite;
+  color: var(--blue-600);
+  width: 2rem;
+  height: 2rem;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Results */
+.reset-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+.back-btn:hover {
+  color: var(--blue-600);
+}
+
+/* Cards */
+.summary-card {
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.main-summary {
+  border-color: var(--blue-100);
+  margin-bottom: 1.5rem;
+}
+.blue-header {
+  background: var(--blue-600);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.card-body {
+  padding: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+}
+
+/* Grid */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  padding: 1.5rem 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.icon-box {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+}
+.icon-box.indigo {
+  background: var(--indigo-100);
+  color: var(--indigo-600);
+}
+.icon-box.red {
+  background: var(--red-100);
+  color: var(--red-500);
+}
+.icon-box.amber {
+  background: var(--amber-100);
+  color: var(--amber-500);
+}
+.icon-box.emerald {
+  background: var(--emerald-100);
+  color: var(--emerald-500);
+}
+.icon-box.gray {
+  background: #f3f4f6;
+  color: var(--gray-600);
+}
+
+.card-text {
+  padding: 0 1.5rem 1.5rem;
+  color: var(--gray-600);
+}
+.list-dots {
+  list-style: none;
+  padding: 0 1.5rem 1.5rem;
+}
+.list-dots li {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--gray-600);
+}
+.list-dots li::before {
+  content: "";
+  display: block;
+  width: 0.375rem;
+  height: 0.375rem;
+  background: currentColor;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+.red .list-dots li::before {
+  background: var(--red-500);
+} /* Example coloring dot based on parent context would need more specific CSS, simplifying here */
+
+.notes-box {
+  background: #f9fafb;
+  margin: 0 1.5rem 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #f3f4f6;
+  color: var(--gray-600);
+  white-space: pre-wrap;
+}
+
+/* Utilities */
+.hidden {
+  display: none !important;
+}
+.footer {
+  border-top: 1px solid var(--gray-200);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}

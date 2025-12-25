@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediSum - Medical Report Summarizer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-area">
+          <div class="logo-icon">
+            <i data-lucide="activity"></i>
+          </div>
+          <h1>Medi<span>Sum</span></h1>
+        </div>
+        <nav class="nav-text">AI Medical Assistant</nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div id="heroSection" class="hero text-center">
+        <h2>Understand Your Medical Reports</h2>
+        <p>
+          Upload your PDF medical report and get a clear, easy-to-read summary
+          in seconds.
+        </p>
+      </div>
+
+      <div id="uploadSection" class="upload-container">
+        <input type="file" id="pdfFile" accept=".pdf" hidden />
+
+        <div class="upload-box" id="dropArea">
+          <div class="icon-circle">
+            <i data-lucide="upload-cloud"></i>
+          </div>
+          <h3>Click to upload or drag and drop</h3>
+          <p class="sub-text">PDF files only (max 10MB)</p>
+        </div>
+        <p id="errorMessage" class="error-msg hidden">
+          <i data-lucide="alert-circle"></i> <span id="errorText"></span>
+        </p>
+      </div>
+
+      <div id="loadingSection" class="hidden text-center">
+        <div class="spinner-container">
+          <div class="ping"></div>
+          <div class="spinner">
+            <i data-lucide="loader-2" class="spin-icon"></i>
+          </div>
+        </div>
+        <h3>Analyzing Report...</h3>
+        <p>This usually takes 10-20 seconds.</p>
+      </div>
+
+      <div id="resultSection" class="hidden fade-in">
+        <div class="reset-bar">
+          <button id="resetBtn" class="back-btn">
+            <i data-lucide="chevron-left"></i> Upload another file
+          </button>
+        </div>
+
+        <div class="summary-card main-summary">
+          <div class="card-header blue-header">
+            <i data-lucide="activity"></i>
+            <h2>Executive Summary</h2>
+          </div>
+          <div class="card-body">
+            <p id="resGeneralSummary">Loading...</p>
+          </div>
+        </div>
+
+        <div class="grid-layout">
+          <div class="summary-card">
+            <div class="card-title">
+              <div class="icon-box indigo"><i data-lucide="user"></i></div>
+              <h3>Patient Details</h3>
+            </div>
+            <p id="resPatientDetails" class="card-text">N/A</p>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-title">
+              <div class="icon-box red"><i data-lucide="stethoscope"></i></div>
+              <h3>Diagnosis</h3>
+            </div>
+            <ul id="resDiagnosis" class="list-dots"></ul>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-title">
+              <div class="icon-box amber">
+                <i data-lucide="clipboard-list"></i>
+              </div>
+              <h3>Test Results</h3>
+            </div>
+            <ul id="resTests" class="list-dots"></ul>
+          </div>
+
+          <div class="summary-card">
+            <div class="card-title">
+              <div class="icon-box emerald"><i data-lucide="pill"></i></div>
+              <h3>Medications</h3>
+            </div>
+            <ul id="resMeds" class="list-dots"></ul>
+          </div>
+
+          <div class="summary-card full-width">
+            <div class="card-title">
+              <div class="icon-box gray"><i data-lucide="sticky-note"></i></div>
+              <h3>Doctor's Notes & Instructions</h3>
+            </div>
+            <div class="notes-box">
+              <p id="resNotes">N/A</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>
+        <strong>Disclaimer:</strong> This tool uses AI. Always consult your
+        doctor.
+      </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
